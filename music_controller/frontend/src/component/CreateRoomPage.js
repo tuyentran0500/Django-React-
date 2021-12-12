@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Button, Grid, Typography, TextField, FormControl, Radio, RadioGroup, FormControlLabel, FormHelperText, FormLabel } from '@material-ui/core'
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 
 export default class CreateRoomPage extends Component {
     defaultVotes = 2
@@ -41,7 +41,8 @@ export default class CreateRoomPage extends Component {
         fetch("/api/create-room", requestOptions)
         .then((response) => response.json())
         .then((data) => {
-            console.log(data);
+            // console.log(data);
+            // const history = useHistory();
             this.props.history.push("/room/" + data.code);
         });
     }
